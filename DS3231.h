@@ -34,11 +34,13 @@ public:
     void getTime(byte& year, byte& month, byte& date, byte& DoW, byte& hour, byte& minute, byte& second);
     byte getSecond();
     byte getMinute();
+    byte getHour();
     byte getHour(bool& h12, bool& PM);
     // In addition to returning the hour register, this function
     // returns the values of the 12/24-hour flag and the AM/PM flag.
     byte getDoW();
     byte getDate();
+    byte getMonth();
     byte getMonth(bool& Century);
     // Also sets the flag indicating century roll-over.
     byte getYear();

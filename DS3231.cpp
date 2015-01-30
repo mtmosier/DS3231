@@ -75,6 +75,15 @@ byte DS3231::getMinute() {
     return bcdToDec(Wire.read());
 }
 
+byte DS3231::getHour() {
+	Wire.beginTransmission(CLOCK_ADDRESS);
+	Wire.write(0x02);
+	Wire.endTransmission();
+
+	Wire.requestFrom(CLOCK_ADDRESS, 1);
+	return bcdToDec(Wire.read() & 0b00011111);
+}
+
 byte DS3231::getHour(bool& h12, bool& PM) {
     byte temp_buffer;
     byte hour;
@@ -110,6 +119,15 @@ byte DS3231::getDate() {
 
     Wire.requestFrom(CLOCK_ADDRESS, 1);
     return bcdToDec(Wire.read());
+}
+
+byte DS3231::getMonth() {
+	Wire.beginTransmission(CLOCK_ADDRESS);
+	Wire.write(uint8_t(0x05));
+	Wire.endTransmission();
+
+	Wire.requestFrom(CLOCK_ADDRESS, 1);
+	return (bcdToDec(Wire.read() & 0b01111111)) ;
 }
 
 byte DS3231::getMonth(bool& Century) {
