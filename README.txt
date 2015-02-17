@@ -10,5 +10,10 @@ I have added 3 new functions.
 2) CheckINTCN   Checks the status of the INTCN(Interupt Flag) bit
 3) enableINTCN  Enables/disables the INTCN bit
 
+Further modified in 2015 by Michael T. Mosier.
+
+I added 2 functions, getHour and getMonth, which take no parameters.  The versions which
+take parameters for returning additional information are still available.
+
 For fuller details please look at the datasheet for the DS3231 Chip which is available from:-
 http://datasheets.maximintegrated.com/en/ds/DS3231.pdf
